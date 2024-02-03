@@ -1,0 +1,151 @@
+.detail__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1230px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.detail__content {
+  margin: 0 auto;
+  display: flex;
+  flex: 1;
+  height: 75vh;
+}
+
+
+/* ----------------Left---------------- */
+.left-side__content {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.shop__img img {
+  width: 100%;
+}
+
+.shop-name {
+  display: flex;
+  align-items: center;
+}
+
+.back-to-list-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  box-shadow: 2px 2px 3px darkgray;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+  transform: rotate(-135deg);
+  margin-top: 5px;
+}
+
+
+/* ----------------Right---------------- */
+.right-side__content {
+  width: 50%;
+  background: #3584bb;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px darkgray;
+}
+
+.right-side__content--top {
+  height: 90%;
+  padding: 10px 20px 0 10px;
+}
+
+.book__ttl {
+  color: white;
+}
+
+.book__select {
+  display: flex;
+  flex-direction: column;
+}
+
+#selectDate {
+  width: 40%;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+#selectTime,
+#numberOfPeople {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.book--record__table {
+  margin-top: 10px;
+  background: #49aef6;
+  color: white;
+  border-radius: 5px;
+}
+
+th {
+  text-align: left;
+  width: 200px;
+  padding: 10px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+td {
+  text-align: left;
+  width: 400px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.right-side__content--bottom {
+  height: 10%;
+  background: #1d4c6e;
+}
+
+.book--button {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  text-align: center;
+}
+
+.book--button button {
+  border: none;
+  background: transparent;
+  color: white;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+
+
+
+/* 画面幅が小さい場合に2分割から1列に変更するためのメディアクエリ */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .main__column {
+    flex: 1 0 auto;
+  }
+}

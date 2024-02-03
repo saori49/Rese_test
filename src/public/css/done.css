@@ -1,0 +1,40 @@
+.done__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%;
+  max-width: 1230px;
+}
+
+.done__content--inner {
+  margin: 0 auto;
+  width: 500px;
+  height: 272px;
+  box-shadow: 2px 2px 3px darkgray;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.done__txt {
+  padding-top: 60px;
+  font-weight: normal;
+  font-size: 27px;
+}
+
+.form__button {
+  margin-top: 45px;
+  text-align: center;
+}
+
+.form__button-submit {
+  width: 20%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 3px;
+  background: #3584bb;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+}

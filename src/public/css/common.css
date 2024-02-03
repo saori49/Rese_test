@@ -1,0 +1,166 @@
+.container {
+  background-color: #f2f2f2;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.header {
+  height: 130px;
+}
+
+.header__content {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  z-index: 10;
+}
+
+.logo__name {
+  position: absolute;
+  left: 3em;
+  top: 2em;
+  color: #3584bb;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+/* hamburger-menuの設定 */
+.hamburger-menu {
+  margin: 0;
+  font-family: arial;
+  width: 60px;
+  height: 60px;
+  animation: bugfix infinite 1s;
+  -webkit-animation: bugfix infinite 1s;
+  z-index: 20;
+}
+
+@keyframes bugfix {
+  from {
+    padding: 0;
+  }
+
+  to {
+    padding: 0;
+  }
+}
+
+@-webkit-keyframes bugfix {
+  from {
+    padding: 0;
+  }
+
+  to {
+    padding: 0;
+  }
+}
+
+#overlay-button {
+  background: #3584bb;
+  position: absolute;
+  padding: 26px 11px;
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 3px;
+  box-shadow: 2px 2px 3px darkgray;
+  z-index: 25;
+}
+
+#overlay-button span {
+  height: 4px;
+  width: 35px;
+  border-radius: 2px;
+  background-color: white;
+  position: relative;
+  display: block;
+  transition: all .2s ease-in-out;
+}
+
+#overlay-button span:before {
+  top: -10px;
+  visibility: visible;
+}
+
+#overlay-button span:after {
+  top: 10px;
+}
+
+#overlay-button span:before,
+#overlay-button span:after {
+  height: 4px;
+  width: 35px;
+  border-radius: 2px;
+  background-color: white;
+  position: absolute;
+  content: "";
+  transition: all .2s ease-in-out;
+}
+
+#overlay-button:hover span,
+#overlay-button:hover span:before,
+#overlay-button:hover span:after {
+  background: #fff;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]:checked~#overlay {
+  visibility: visible;
+}
+
+input[type=checkbox]:checked~#overlay-button:hover span,
+input[type=checkbox]:checked~#overlay-button span {
+  background: transparent;
+}
+
+input[type=checkbox]:checked~#overlay-button span:before {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+input[type=checkbox]:checked~#overlay-button span:after {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+#overlay {
+  height: 100vh;
+  width: 100%;
+  background: white;
+  z-index: 20;
+  visibility: hidden;
+  position: fixed;
+}
+
+#overlay ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+#overlay ul li {
+  padding: 1em;
+}
+
+#overlay ul li a {
+  color: #3584bb;
+  text-decoration: none;
+  font-size: 3em;
+}
+
+#overlay ul li a:hover {
+  color: #000 !important;
+}
