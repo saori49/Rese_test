@@ -19,7 +19,7 @@
           </tr>
           <tr>
             <td>shop</td>
-            <td>sennninn</td>
+            <td></td>
           </tr>
           <tr>
             <td>Date</td>

@@ -92,14 +92,15 @@
               });
             </script>
           </div>
-        </div>
-        <div class="right-side__content--bottom">
-          <div class="book--button">
-            <button>予約する</button>
+          <div class="right-side__content--bottom">
+            <div class="book--button">
+              <button>予約する</button>
+            </div>
           </div>
         </div>
       </form>
     </div>
+
   </div>
 </div>
 

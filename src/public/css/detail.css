@@ -63,8 +63,7 @@
   box-shadow: 2px 2px 3px darkgray;
 }
 
-.right-side__content--top {
-  height: 90%;
+.book-form {
   padding: 10px 20px 0 10px;
 }
 
@@ -116,27 +115,21 @@ td {
   font-size: 20px;
 }
 
-.right-side__content--bottom {
-  height: 10%;
-  background: #1d4c6e;
-}
-
 .book--button {
   position: absolute;
   bottom: 0;
   width: 50%;
   text-align: center;
+  background: #1d4c6e;
 }
 
 .book--button button {
   border: none;
   background: transparent;
   color: white;
-  padding-bottom: 20px;
+  padding: 10px 0px;
   font-size: 20px;
 }
-
-
 
 
 /* 画面幅が小さい場合に2分割から1列に変更するためのメディアクエリ */

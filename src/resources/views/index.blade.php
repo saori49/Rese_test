@@ -21,7 +21,7 @@
         <h2 class="card__content--name">{{ $shop->shop_name }}</h2>
         <p class="card__content--tag">#{{ $shop->area }}#{{ $shop->genre }}</p>
         <div class="card__content--btn">
-          <a href="{{ route('getDetail', ['shop_id' => $shop->id]) }}" class="card__content--btn-item">詳しくみる</a>
+          <a href="{{ route('getDetail', $shop->id) }}" class="card__content--btn-item">詳しくみる</a>
           <button class="card__content--favorite--btn"></button>
         </div>
       </div>
