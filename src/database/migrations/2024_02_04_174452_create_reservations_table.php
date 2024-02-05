@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateReservationsTable extends Migration
 {
     /**
@@ -19,7 +20,7 @@ class CreateReservationsTable extends Migration
             $table->foreignId('shop_id')->constrained('shops')->onDelete('cascade');
             $table->string('shop_name');
             $table->date('reservation_date');
-            $table->dateTime('reservation_time');
+            $table->time('reservation_time');
             $table->integer('reservation_number');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();

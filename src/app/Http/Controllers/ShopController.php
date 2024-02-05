@@ -14,10 +14,12 @@ class ShopController extends Controller
     }
 
     // 飲食店詳細表示
-    public function getDetail($id)
+    public function getDetail($shop_id)
     {
-        $shop = Shop::findOrFail($id);
-        return view('detail', compact('shop'));
+        $shop = Shop::findOrFail($shop_id);
+        $shop_name = $shop->shop_name;
+
+        return view('detail', compact('shop','shop_name'));
     }
 
 }

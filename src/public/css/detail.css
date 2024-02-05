@@ -85,7 +85,7 @@
 }
 
 #selectTime,
-#numberOfPeople {
+#selectNumber {
   width: 100%;
   padding: 8px;
   border-radius: 5px;
@@ -121,9 +121,10 @@ td {
   width: 50%;
   text-align: center;
   background: #1d4c6e;
+  border-radius:0 0 5px 5px;
 }
 
-.book--button button {
+.form__button-submit {
   border: none;
   background: transparent;
   color: white;

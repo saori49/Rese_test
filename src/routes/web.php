@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,4 +52,6 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/reserve', [ReservationController::class, 'getReservation'])->name('getReserve');
 
 // 予約を処理するルート
-Route::post('/reserve', [ReservationController::class, 'reserve'])->name('reserve');
+Route::post('/reserve/{shop_id}', [ReservationController::class, 'reserve'])->name('reserve');
+
+Route::get('/done',[ReservationController::class, 'getDone']);
