@@ -29,10 +29,9 @@ class ReservationController extends Controller
       'reservation_date' => $selectedDate,
       'reservation_time' =>$selectedTime,
       'reservation_number' => $selectedNumber,
-      // その他の予約情報に合わせて追加
     ]);
 
-    // 予約完了後の処理やリダイレクト先などを追加する
+    return redirect('/done');
   }
 
   public function getDone()

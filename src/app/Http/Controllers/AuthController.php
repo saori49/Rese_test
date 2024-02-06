@@ -45,7 +45,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->input('password')),
         ]);
 
-        return redirect('/login')->with('success', 'ユーザー登録が完了しました');
+        return redirect('/thanks');
 
     }
 
@@ -53,5 +53,10 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect("/")->with('logout','ログアウトしました');
+    }
+
+    public function getThanks()
+    {
+        return view('thanks');
     }
 }

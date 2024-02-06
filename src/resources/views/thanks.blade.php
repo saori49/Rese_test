@@ -8,8 +8,8 @@
 <div class="thanks__content">
   <div class="thanks__content--inner">
     <h1 class="thanks__txt">会員登録ありがとうございます</h1>
-    <div class="form__button">
-      <button class="form__button-submit" type="submit">ログインする</button>
+    <div class="button">
+      <a href="{{ route('getLogin') }}" class="button__login">ログインする</a>
     </div>
   </div>
 </div>

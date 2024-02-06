@@ -23,18 +23,18 @@
   font-size: 27px;
 }
 
-.form__button {
+.button {
   margin-top: 45px;
   text-align: center;
 }
 
-.form__button-submit {
-  width: 30%;
-  padding: 10px 0;
-  border: none;
-  border-radius: 3px;
+.button__login {
+  width: 20%;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
   background: #3584bb;
   color: #fff;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 18px;
 }

@@ -22,7 +22,18 @@
         <p class="card__content--tag">#{{ $shop->area }}#{{ $shop->genre }}</p>
         <div class="card__content--btn">
           <a href="{{ route('getDetail', $shop->id) }}" class="card__content--btn-item">詳しくみる</a>
-          <button class="card__content--favorite--btn"></button>
+          @auth
+            <form  method="post" action="{{ route('favorite.toggle', ['shop_id' => $shop->id]) }}">
+            @csrf
+              <button class="card__content--favorite--btn" type="submit">
+                @if ($isFavorite)
+                  Remove from Favorites
+                @else
+                  Add to Favorites
+                @endif
+              </button>
+            </form>
+          @endauth
         </div>
       </div>
     </div>

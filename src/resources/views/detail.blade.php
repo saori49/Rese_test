@@ -91,7 +91,7 @@
           });
         </script>
         <div class="book--button">
-          <button>予約する</button>
+          <button class="form__button-submit" type="submit">予約する</button>
         </div>
       </form>
     </div>

@@ -8,8 +8,8 @@
 <div class="done__content">
   <div class="done__content--inner">
     <h1 class="done__txt">ご予約ありがとうございます</h1>
-    <div class="form__button">
-      <button class="form__button-submit" onclick="location.href='{{ route("getIndex") }}'" type="submit">戻る</button>
+    <div class="button">
+      <a href="{{ route('getIndex') }}" class="button__back">戻る</a>
     </div>
   </div>
 </div>
