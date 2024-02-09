@@ -55,11 +55,16 @@
   background: #3584bb;
   color: #fff;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .alert.alert-success {
   text-align: center;
 }
+
+
+
+
 
 
 /* 画面幅が小さい場合に2分割から1列に変更するためのメディアクエリ */

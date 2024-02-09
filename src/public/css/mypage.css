@@ -15,11 +15,6 @@
   flex: 1;
 }
 
-/* ---いらないっぽい------ */
-.left-side__content,
-.right-side__content {
-  flex: 1;
-}
 
 /* ----------------Left---------------- */
 .left-side__content {
@@ -39,17 +34,24 @@ table {
   color: white;
   border-radius: 5px;
   box-shadow: 2px 2px 3px darkgray;
+  border: none;
+  margin-bottom: 5px;
 }
 
 th {
   font-weight: normal;
-  padding: 18px 0;
+  padding: 20px 0;
+  text-align: left;
   width: 200px;
 }
 
-tr,
 td {
   text-align: left;
+  padding: 0 0 20px 20px;
+}
+
+.fa-regular.fa-clock.fa-2x{
+  padding-left: 20px;
 }
 
 /* ----------------Right---------------- */

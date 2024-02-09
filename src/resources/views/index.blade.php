@@ -11,6 +11,11 @@
       {{session('logout')}}
     </div>
   @endif
+  @if(session('logout'))
+    <div class="alert alert-success">
+      {{session('logout')}}
+    </div>
+  @endif
   <div class="grid">
     @foreach($shops as $shop)
     <div class="favorite__content--card">
@@ -22,22 +27,20 @@
         <p class="card__content--tag">#{{ $shop->area }}#{{ $shop->genre }}</p>
         <div class="card__content--btn">
           <a href="{{ route('getDetail', $shop->id) }}" class="card__content--btn-item">詳しくみる</a>
-          @auth
-            <form  method="post" action="{{ route('favorite.toggle', ['shop_id' => $shop->id]) }}">
+          <form method="POST" action="{{ route('favorite.toggle', $shop->id) }}">
             @csrf
-              <button class="card__content--favorite--btn" type="submit">
-                @if ($isFavorite)
-                  Remove from Favorites
-                @else
-                  Add to Favorites
-                @endif
-              </button>
-            </form>
-          @endauth
+            <button type="submit" class="card__content--favorite--btn">
+              @if(auth()->check() && optional(auth()->user()->favorites)->contains($shop->id))
+                お気に入り解除
+              @else
+                お気に入り登録
+              @endif
+            </button>
+          </form>
         </div>
-      </div>
-    </div>
-    @endforeach
+      </div>  
+    </div>  
+    @endforeach    
   </div>
 </div>
 @endsection
