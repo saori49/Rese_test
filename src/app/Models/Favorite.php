@@ -21,10 +21,8 @@ class Favorite extends Model
 
     public function shop()
     {
-        return $this->belongsTo(shop::class);
+        return $this->belongsTo(Shop::class, 'shop_id', 'id');
     }
 
-    //public function shop()
-    //{return $this->belongsTo(Shop::class, 'shop_id', 'id');}
 
 }

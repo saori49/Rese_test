@@ -47,31 +47,39 @@
     </div>
 
     <div class="right-side__content">
-      @isset($favorites)
-        @foreach($favorites as $favorite)
-        <div class="favorite__content">
-          <p class="favorite__content--username">{{ $favorite->name }}さん</p>
-          <p class="favorite__content--text">お気に入り店舗</p>
-          <div class="grid">
+      @if(count($favorites) > 0)
+      <div class="favorite__content">
+        <p class="favorite__content--username">{{ $favorites[0]->user->name }}さん</p>
+        <p class="favorite__content--text">お気に入り店舗</p>
+
+        <div class="grid">
+          @foreach($favorites as $favorite)
             <div class="favorite__content--card">
               <div class="card__img">
-                <img src="https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg" alt="" />
+                <img src="{{ $favorite->shop->image_url }}"  />
               </div>
               <div class="card__content">
-                <h2 class="card__content--name">仙人</h2>
-                <p class="card__content--tag">#東京都#寿司</p>
+                <h2 class="card__content--name">{{ $favorite->shop->shop_name }}</h2>
+                <p class="card__content--tag">#{{ $favorite->shop->area }}#{{ $favorite->shop->genre }}</p>
                 <div class="card__content--btn">
-                  <button class="card__content--btn-item">詳しくみる</button>
-                  <button class="card__content--btn--item--heart"></button>
+                  <a href="{{ route('getDetail', $favorite->id) }}" class="card__content--btn-item">詳しくみる</a>
+                  <form method="POST" action="{{ route('getFavorite', $favorite->id) }}">
+                    @csrf
+                    <button type="submit" class="card__content--favorite--btn">
+                      @if(auth()->check() && optional(auth()->user()->favorites)->contains($favorite->id))
+                        お気に入り解除
+                      @else
+                          お気に入り登録
+                      @endif
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
-          </div>
+          @endforeach
         </div>
-        @endforeach
-      @else
-        <p>No favorites found.</p>
-      @endisset
+      </div>
+      @endif
     </div>
   </div>
 </div>

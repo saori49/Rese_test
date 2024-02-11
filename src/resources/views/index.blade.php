@@ -11,23 +11,23 @@
       {{session('logout')}}
     </div>
   @endif
-  @if(session('logout'))
+  @if(session('message'))
     <div class="alert alert-success">
-      {{session('logout')}}
+      {{session('message')}}
     </div>
   @endif
   <div class="grid">
     @foreach($shops as $shop)
     <div class="favorite__content--card">
       <div class="card__img">
-        <img src="{{ $shop->image_url }}"" alt="" />
+        <img src="{{ $shop->image_url }}" alt="" />
       </div>
       <div class="card__content">
         <h2 class="card__content--name">{{ $shop->shop_name }}</h2>
         <p class="card__content--tag">#{{ $shop->area }}#{{ $shop->genre }}</p>
         <div class="card__content--btn">
           <a href="{{ route('getDetail', $shop->id) }}" class="card__content--btn-item">詳しくみる</a>
-          <form method="POST" action="{{ route('favorite.toggle', $shop->id) }}">
+          <form method="POST" action="{{ route('getFavorite', $shop->id) }}">
             @csrf
             <button type="submit" class="card__content--favorite--btn">
               @if(auth()->check() && optional(auth()->user()->favorites)->contains($shop->id))

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
 use App\Models\Reservation;
+use App\Models\Shop;
 
 
 class UserController extends Controller
@@ -14,7 +15,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $reservations = Reservation::where('user_id', $user->id)->get();
-        $favorites = Favorite::where('user_id', $user->id)->get();
+        $favorites = Favorite::with('user','shop')->where('user_id', $user->id)->get();
 
         return view('mypage', ['user' => $user, 'reservations' => $reservations, 'favorites' => $favorites]);
     }
@@ -24,7 +25,8 @@ class UserController extends Controller
     {
         // ログインユーザーのお気に入り一覧を取得
         $user = auth()->user();
-        $favorites = $user->favorites;
+        $favorites = Favorite::where('user_id', $user->id)->get();
+
 
         //return view('mypage', ['favorites' => $favorites]);
         return $this->getMypage();
@@ -39,6 +41,5 @@ class UserController extends Controller
         //return view('mypage', ['reservations' => $reservations]);
         return $this->getMypage();
     }
-
 
 }

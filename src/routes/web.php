@@ -27,7 +27,7 @@ Route::get('/detail/{id}', [ShopController::class, 'getDetail'])->name("getDetai
 
 // UserController
 Route::middleware(['auth'])->group(function () {
-    Route::get('/mypage', [UserController::class, 'getMyPage'])->name('getMypage');
+    Route::get('/mypage', [UserController::class, 'getMypage'])->name('getMypage');
 });
 Route::get('/user/favorites', [UserController::class, 'showFavorites']);
 Route::get('/user/reservations', [UserController::class, 'showReservations']);
@@ -43,5 +43,5 @@ Route::post('/done',[ReservationController::class, 'postDone']);
 
 //FavoriteController
 Route::middleware(['auth'])->group(function () {
-    Route::post('/favorite/{shopId}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
+    Route::post('/favorite/{shop_id}', [FavoriteController::class, 'getFavorite'])->name('getFavorite');
 });
