@@ -57,6 +57,21 @@ td {
   padding-left: 20px;
 }
 
+.delete--btn{
+  padding: 0;
+  background: #3584bb;
+  border: none;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+table th:nth-child(3){
+  text-align: right;
+}
+.fa-regular.fa-circle-xmark.fa-2x{
+  color: #fff;
+}
+
 /* ----------------Right---------------- */
 .right-side__content {
   width: 60%;
@@ -111,7 +126,7 @@ td {
 
 
 .card__content--btn {
-  padding: 20px 0;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -123,8 +138,19 @@ td {
   background: #3584bb;
   color: #fff;
   cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
 }
 
+.card__content--favorite--btn {
+  border: none;
+  cursor: pointer;
+}
+
+.fa-solid.fa-heart.fa-2x {
+  color:red;
+  ;
+}
 
 
 /* 画面幅が小さい場合に2分割から1列に変更するためのメディアクエリ */

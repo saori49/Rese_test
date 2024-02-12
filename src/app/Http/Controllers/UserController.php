@@ -20,26 +20,40 @@ class UserController extends Controller
         return view('mypage', ['user' => $user, 'reservations' => $reservations, 'favorites' => $favorites]);
     }
 
-    // ユーザーのお気に入り一覧取得
+    // お気に入り
     public function showFavorites()
     {
         // ログインユーザーのお気に入り一覧を取得
         $user = auth()->user();
         $favorites = Favorite::where('user_id', $user->id)->get();
 
-
-        //return view('mypage', ['favorites' => $favorites]);
-        return $this->getMypage();
+        return view('mypage', ['favorites' => $favorites]);
     }
 
-    // ユーザーの予約情報取得
+    public function destroyFavorite($id)
+    {
+        $favorite = Favorite::findOrFail($id);
+        $favorite->delete();
+
+        return redirect()->route('getMypage')->with('deleteFavorite', 'お気に入りから削除しました。');
+    }
+
+
+    // 予約
     public function showReservations()
     {
         $user = auth()->user();
         $reservations = Reservation::where('user_id', $user->id)->get();
 
-        //return view('mypage', ['reservations' => $reservations]);
-        return $this->getMypage();
+        return view('mypage', ['reservations' => $reservations]);
+    }
+
+    public function destroyReservation($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        $reservation->delete();
+
+        return redirect()->route('getMypage')->with('deleteReservation', '予約が削除されました。');
     }
 
 }

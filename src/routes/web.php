@@ -23,6 +23,7 @@ Route::post('/thanks', [AuthController::class, 'postThanks']);
 // ShopController
 Route::get('/', [ShopController::class, 'getIndex'])->name("getIndex");
 Route::get('/detail/{id}', [ShopController::class, 'getDetail'])->name("getDetail");
+Route::get('/shops/search', [ShopController::class, 'search'])->name('search');
 
 
 // UserController
@@ -30,14 +31,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mypage', [UserController::class, 'getMypage'])->name('getMypage');
 });
 Route::get('/user/favorites', [UserController::class, 'showFavorites']);
+Route::delete('/user/favorites/delete/{id}', [UserController::class, 'destroyFavorite'])->name('favorite.delete');
 Route::get('/user/reservations', [UserController::class, 'showReservations']);
+Route::delete('/user/reservations/delete/{id}', [UserController::class, 'destroyReservation'])->name('reservation.delete');
 
 
 //ReservationController
 Route::get('/reserve', [ReservationController::class, 'getReservation'])->name('getReserve');
-
 Route::post('/reserve/{shop_id}', [ReservationController::class, 'reserve'])->name('reserve');
-
 Route::get('/done',[ReservationController::class, 'getDone']);
 Route::post('/done',[ReservationController::class, 'postDone']);
 

@@ -12,7 +12,6 @@ class ReservationController extends Controller
   {
     $user_id = Auth::id();
 
-    // フォームからのデータを取得
     $selectedDate = $request->input('selectDate');
     $selectedTime = $request->input('selectTime');
     $selectedNumber = $request->input('selectNumber');
@@ -20,8 +19,6 @@ class ReservationController extends Controller
     $shop = Shop::findOrFail($shop_id);
     $shop_name = $shop->shop_name;
 
-
-    // 予約情報をデータベースに格納
     Reservation::create([
       'user_id' => $user_id,
       'shop_id' => $shop_id,

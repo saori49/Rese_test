@@ -22,4 +22,29 @@ class ShopController extends Controller
         return view('detail', compact('shop','shop_name'));
     }
 
+    //検索
+    public function search(Request $request)
+    {
+        // リクエストから検索条件を取得
+        $area = $request->input('area');
+        $genre = $request->input('genre');
+        $shop_name = $request->input('shop_name');
+
+        // クエリビルダーを使用して検索条件に基づいてデータを取得
+        $shops = Shop::when($area, function ($query, $area) {
+                        return $query->where('area', $area);
+                    })
+                    ->when($genre, function ($query, $genre) {
+                        return $query->where('genre', $genre);
+                    })
+                    ->when($shop_name, function ($query, $shop_name) {
+                        return $query->where('name', 'like', "%{$shop_name}%");
+                    })
+                    
+                    ->get();
+
+        // 検索結果をビューに渡す
+        return view('index', compact('shops', 'area', 'genre', 'shop_name'));
+    }
+
 }

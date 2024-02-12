@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_index')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
@@ -11,16 +11,16 @@
       {{session('logout')}}
     </div>
   @endif
-  @if(session('message'))
+  @if(session('update'))
     <div class="alert alert-success">
-      {{session('message')}}
+      {{session('update')}}
     </div>
   @endif
   <div class="grid">
     @foreach($shops as $shop)
     <div class="favorite__content--card">
       <div class="card__img">
-        <img src="{{ $shop->image_url }}" alt="" />
+        <img src="{{ $shop->image_url }}"  />
       </div>
       <div class="card__content">
         <h2 class="card__content--name">{{ $shop->shop_name }}</h2>
@@ -29,18 +29,12 @@
           <a href="{{ route('getDetail', $shop->id) }}" class="card__content--btn-item">詳しくみる</a>
           <form method="POST" action="{{ route('getFavorite', $shop->id) }}">
             @csrf
-            <button type="submit" class="card__content--favorite--btn">
-              @if(auth()->check() && optional(auth()->user()->favorites)->contains($shop->id))
-                お気に入り解除
-              @else
-                お気に入り登録
-              @endif
-            </button>
+            <button type="submit" class="card__content--favorite--btn"><i class="fa-solid fa-heart fa-2x"></i></button>
           </form>
         </div>
-      </div>  
-    </div>  
-    @endforeach    
+      </div>
+    </div>
+    @endforeach
   </div>
 </div>
 @endsection
