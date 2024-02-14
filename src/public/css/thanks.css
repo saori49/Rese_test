@@ -38,3 +38,18 @@
   cursor: pointer;
   font-size: 18px;
 }
+
+.sp_br {
+  display: none;
+}
+
+/* メディアクエリ */
+@media screen and (max-width: 480px) {
+  .thanks__content--inner {
+    width: 300px;
+  }
+
+  .sp_br {
+    display: block;
+  }
+}

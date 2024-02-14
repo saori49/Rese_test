@@ -75,7 +75,7 @@
 }
 
 #overlay-button span {
-  height: 2px;
+  height: 1px;
   width: 35px;
   border-radius: 2px;
   background-color: white;
@@ -97,7 +97,7 @@
 
 #overlay-button span:before,
 #overlay-button span:after {
-  height: 2px;
+  height: 1px;
   border-radius: 2px;
   background-color: white;
   position: absolute;
@@ -166,4 +166,89 @@ input[type=checkbox]:checked~#overlay-button span:after {
 
 #overlay ul li a:hover {
   color: #000 !important;
+}
+
+/* Searchの設定 */
+.search {
+  width: 50%;
+}
+
+search form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.search th {
+  padding: 0px;
+}
+
+.select__area,
+.select__genre
+{
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-top: none;
+  border-bottom:none ;
+  border-left: none;
+  box-shadow: 0px 2px 2px 0px darkgray;
+}
+
+.select__area{
+  border-radius:5px 0 0 5px;
+}
+
+.select__btn {
+  border: none;
+  padding: 10.5px;
+  background:white;
+  color: gainsboro;
+  cursor: pointer;
+  width: 100%;
+  border-radius:0 5px 5px 0;
+  box-shadow:2px 2px 3px darkgray;
+}
+.select__btn:hover {
+  color: black;
+}
+
+/* メディアクエリ */
+@media screen and (max-width: 768px) {
+  .search {
+    width: 30%;
+  }
+
+  table th  {
+    width: 100%;
+    display: block;
+  }
+
+  .select__area,
+  .select__genre {
+    border: none;
+    box-shadow: none;
+  }
+
+  .select__area {
+    border-radius: 0;
+  }
+
+  .select__btn {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .main__column {
+    flex: 1 0 auto;
+  }
+
 }

@@ -7,7 +7,7 @@
 @section('content')
 <div class="thanks__content">
   <div class="thanks__content--inner">
-    <h1 class="thanks__txt">会員登録ありがとうございます</h1>
+    <h1 class="thanks__txt">会員登録<br class="sp_br">ありがとうございます</h1>
     <div class="button">
       <a href="{{ route('getLogin') }}" class="button__login">ログインする</a>
     </div>

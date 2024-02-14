@@ -75,7 +75,7 @@
 }
 
 #overlay-button span {
-  height: 2px;
+  height: 1px;
   width: 35px;
   border-radius: 2px;
   background-color: white;
@@ -97,7 +97,7 @@
 
 #overlay-button span:before,
 #overlay-button span:after {
-  height: 2px;
+  height: 1px;
   border-radius: 2px;
   background-color: white;
   position: absolute;

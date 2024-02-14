@@ -72,3 +72,34 @@
   color: #fff;
   cursor: pointer;
 }
+
+/* メディアクエリ */
+@media screen and (max-width: 480px) {
+  .login-form__content {
+    width: 300px;
+  }
+
+  .login-form__body{
+    padding: 0 10px;
+  }
+
+  .form__group-input{
+    width: 250px;
+  }
+
+  .login-form__title{
+    text-align: center;
+    font-size: larger;
+  }
+  .form__button {
+    text-align: center;
+  }
+
+  .form__button {
+    margin-right: 0px;
+  }
+
+  .form__button-submit{
+    width: 30%;
+  }
+}

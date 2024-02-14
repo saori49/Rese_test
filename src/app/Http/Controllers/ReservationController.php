@@ -5,11 +5,17 @@ use App\Models\Reservation;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReservationRequest;
+
 
 class ReservationController extends Controller
 {
-  public function reserve(Request $request, $shop_id)
+  public function reserve(ReservationRequest $request, $shop_id)
   {
+    if (!Auth::check()) {
+      return redirect('/register')->with('reserve_error','会員登録をしてください');
+    }
+
     $user_id = Auth::id();
 
     $selectedDate = $request->input('selectDate');

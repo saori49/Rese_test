@@ -10,20 +10,22 @@ use App\Http\Controllers\FavoriteController;
 
 
 //AuthController
-Route::get('/login', [AuthController::class, 'getLogin'])->name("getLogin");;
-Route::post('/login', [AuthController::class, 'postLogin'])->name("postLogin");
+Route::get('/login', [AuthController::class, 'getLogin'])->name("getLogin");
+Route::post('/login', [AuthController::class, 'postLogin']);
 Route::get('/register', [AuthController::class, 'getRegister']);
 Route::post('/register', [AuthController::class, 'postRegister']);
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', [AuthController::class,'getLogout']);
+    Route::get('/logout', [AuthController::class,'logout']);
 });
-Route::get('/thanks', [AuthController::class, 'getThanks']);
-Route::post('/thanks', [AuthController::class, 'postThanks']);
+Route::get('/thanks', [AuthController::class, 'showThanks']);
+//Route::post('/thanks', [AuthController::class, 'postThanks']);
 
 // ShopController
 Route::get('/', [ShopController::class, 'getIndex'])->name("getIndex");
 Route::get('/detail/{id}', [ShopController::class, 'getDetail'])->name("getDetail");
-Route::get('/shops/search', [ShopController::class, 'search'])->name('search');
+//Route::get('search', [ShopController::class, 'search'])->name('search');
+//Route::post('/search', [ShopController::class, "search"])->name("search");
+Route::get('/shops/search', [ShopController::class, 'search'])->name('shops.search');
 
 
 // UserController
@@ -37,10 +39,10 @@ Route::delete('/user/reservations/delete/{id}', [UserController::class, 'destroy
 
 
 //ReservationController
-Route::get('/reserve', [ReservationController::class, 'getReservation'])->name('getReserve');
+//Route::get('/reserve', [ReservationController::class, 'getReservation'])->name('getReserve');
 Route::post('/reserve/{shop_id}', [ReservationController::class, 'reserve'])->name('reserve');
 Route::get('/done',[ReservationController::class, 'getDone']);
-Route::post('/done',[ReservationController::class, 'postDone']);
+//Route::post('/done',[ReservationController::class, 'postDone']);
 
 //FavoriteController
 Route::middleware(['auth'])->group(function () {

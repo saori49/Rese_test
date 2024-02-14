@@ -16,6 +16,10 @@
   height: 75vh;
 }
 
+.form__error{
+  color: red;
+}
+
 
 /* ----------------Left---------------- */
 .left-side__content {
@@ -132,14 +136,31 @@ td {
   font-size: 20px;
 }
 
-
-/* 画面幅が小さい場合に2分割から1列に変更するためのメディアクエリ */
-@media (max-width: 768px) {
-  main {
+/* メディアクエリ */
+@media screen and (max-width: 768px) {
+  .detail__content {
     flex-direction: column;
+  }
+
+  .left-side__content,
+  .right-side__content{
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   .main__column {
     flex: 1 0 auto;
   }
+
+  .book-form {
+    padding: 10px 20px 40px 10px;
+  }
+
+  .book--button {
+    width: 100%;
+    position: relative;
+    top: 100%;
+    transform: translateY(0%);
+  }
+
 }

@@ -44,18 +44,16 @@ class AuthController extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
         ]);
-
         return redirect('/thanks');
-
     }
 
-    public function getLogout()
+    public function logout()
     {
         Auth::logout();
         return redirect("/")->with('logout','ログアウトしました');
     }
 
-    public function getThanks()
+    public function showThanks()
     {
         return view('thanks');
     }

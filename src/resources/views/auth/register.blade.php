@@ -6,6 +6,13 @@
 
 @section('content')
 <div class="register__content">
+
+  @if(session('reserve_error'))
+    <div class="alert alert-danger">
+      {{session('reserve_error')}}
+    </div>
+  @endif
+
   <div class="register-form__content">
     <div class="register-form__heading">
       <p class="register-form__title">Register</p>

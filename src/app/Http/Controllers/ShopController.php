@@ -25,26 +25,32 @@ class ShopController extends Controller
     //検索
     public function search(Request $request)
     {
-        // リクエストから検索条件を取得
-        $area = $request->input('area');
-        $genre = $request->input('genre');
-        $shop_name = $request->input('shop_name');
+        $request->validate([
+            'name' => 'nullable|string',
+            'category' => 'nullable|string',
+            'location' => 'nullable|string',
+            // 他の検索条件も必要に応じて追加
+        ]);
 
-        // クエリビルダーを使用して検索条件に基づいてデータを取得
-        $shops = Shop::when($area, function ($query, $area) {
-                        return $query->where('area', $area);
-                    })
-                    ->when($genre, function ($query, $genre) {
-                        return $query->where('genre', $genre);
-                    })
-                    ->when($shop_name, function ($query, $shop_name) {
-                        return $query->where('name', 'like', "%{$shop_name}%");
-                    })
-                    
-                    ->get();
+        $query = Shop::query();
 
-        // 検索結果をビューに渡す
-        return view('index', compact('shops', 'area', 'genre', 'shop_name'));
+        if ($request->filled('name')) {
+            $query->where('name', 'LIKE', "%{$request->name}%");
+        }
+
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->filled('location')) {
+            $query->where('location', 'LIKE', "%{$request->location}%");
+        }
+
+        // 他の条件に基づく検索も同様に追加
+
+        $result = $query;
+
+        return view('index', ['shops' => $result]);
     }
 
 }

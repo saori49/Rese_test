@@ -77,13 +77,23 @@
 }
 
 
-/* 画面幅が小さい場合に2分割から1列に変更するためのメディアクエリ */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
+/* メディアクエリ */
+@media screen and (max-width: 768px) {
+  .home__content{
+    margin-top: 40px;
   }
 
-  .main__column {
-    flex: 1 0 auto;
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home__content {
+    margin-top: 40px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

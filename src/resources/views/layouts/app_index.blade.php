@@ -42,19 +42,19 @@
         <a class="logo__name">Rese</a>
       </div>
       <div class="search">
-        <form action="{{ route('search') }}" method="GET">
+        <form action="{{ route('shops.search') }}" method="GET">
           <table>
             <tr>
               <th>
-                <select name="area" id="area">
+                <select class="select__area "name="area" >
                   <option value="area1">All area</option>
                   <option value="area2">東京都</option>
                   <option value="area3">大阪府</option>
-                  <option value="area3">福岡県</option>
+                  <option value="area4">福岡県</option>
                 </select>
               </th>
               <th>
-                <select name="genre" id="genre">
+                <select class="select__genre name="genre" >
                   <option value="genre1">All genre</option>
                   <option value="genre2">寿司</option>
                   <option value="genre3">イタリアン</option>
@@ -63,7 +63,7 @@
                 </select>
               </th>
               <th>
-                <button type="submit">Search</button>
+                <button class="select__btn type="submit">Search</button>
               </th>
             </tr>
           </table>

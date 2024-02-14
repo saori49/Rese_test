@@ -152,15 +152,16 @@ table th:nth-child(3){
   ;
 }
 
-
-/* 画面幅が小さい場合に2分割から1列に変更するためのメディアクエリ */
+/* メディアクエリ */
 @media screen and (max-width: 768px) {
-  .mypage__container {
-    align-items: flex-start;
+  .mypage__content {
+    flex-direction: column;
   }
 
   .left-side__content,
   .right-side__content {
     width: 100%;
+    margin-bottom: 20px;
   }
+
 }
