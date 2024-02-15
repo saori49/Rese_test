@@ -65,6 +65,7 @@
   background: #3584bb;
   border-radius: 5px;
   box-shadow: 2px 2px 3px darkgray;
+  height: 90vh;
 }
 
 .book-form {
@@ -121,7 +122,7 @@ td {
 
 .book--button {
   position: absolute;
-  bottom: 0;
+  bottom: -110px;
   width: 50%;
   text-align: center;
   background: #1d4c6e;
@@ -161,6 +162,7 @@ td {
     position: relative;
     top: 100%;
     transform: translateY(0%);
+    bottom: 0;
   }
 
 }

@@ -25,32 +25,30 @@ class ShopController extends Controller
     //検索
     public function search(Request $request)
     {
-        $request->validate([
-            'name' => 'nullable|string',
-            'category' => 'nullable|string',
-            'location' => 'nullable|string',
-            // 他の検索条件も必要に応じて追加
-        ]);
+        $shop_name = $request->input('shop_name');
+        $area = $request->input('area');
+        $genre = $request->input('genre');
 
         $query = Shop::query();
 
-        if ($request->filled('name')) {
-            $query->where('name', 'LIKE', "%{$request->name}%");
+        if ($shop_name && $shop_name != 'shop_name1') {
+            $query->where('shop_name', $shop_name);
         }
 
-        if ($request->filled('category')) {
-            $query->where('category', $request->category);
+        if ($area && $area != 'area1') {
+            $query->where('area', $area);
         }
 
-        if ($request->filled('location')) {
-            $query->where('location', 'LIKE', "%{$request->location}%");
+        if ($genre && $genre != 'genre1') {
+            $query->where('genre', $genre);
         }
 
-        // 他の条件に基づく検索も同様に追加
+        $shops = $query->get();
 
-        $result = $query;
+        if (!isset($shops)) {
+            $shops = collect(); 
+        }
 
-        return view('index', ['shops' => $result]);
+        return view('index', ['shops' => $shops]);
     }
-
 }

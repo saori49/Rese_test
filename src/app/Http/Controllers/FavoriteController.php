@@ -27,5 +27,6 @@ class FavoriteController extends Controller
         }
 
         return redirect()->back()->with('update', 'お気に入り登録が更新されました');
+
     }
 }

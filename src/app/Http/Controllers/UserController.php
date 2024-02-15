@@ -23,7 +23,6 @@ class UserController extends Controller
     // お気に入り
     public function showFavorites()
     {
-        // ログインユーザーのお気に入り一覧を取得
         $user = auth()->user();
         $favorites = Favorite::where('user_id', $user->id)->get();
 

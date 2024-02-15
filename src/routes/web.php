@@ -18,15 +18,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class,'logout']);
 });
 Route::get('/thanks', [AuthController::class, 'showThanks']);
-//Route::post('/thanks', [AuthController::class, 'postThanks']);
 
 // ShopController
 Route::get('/', [ShopController::class, 'getIndex'])->name("getIndex");
 Route::get('/detail/{id}', [ShopController::class, 'getDetail'])->name("getDetail");
-//Route::get('search', [ShopController::class, 'search'])->name('search');
-//Route::post('/search', [ShopController::class, "search"])->name("search");
 Route::get('/shops/search', [ShopController::class, 'search'])->name('shops.search');
-
 
 // UserController
 Route::middleware(['auth'])->group(function () {
@@ -37,12 +33,9 @@ Route::delete('/user/favorites/delete/{id}', [UserController::class, 'destroyFav
 Route::get('/user/reservations', [UserController::class, 'showReservations']);
 Route::delete('/user/reservations/delete/{id}', [UserController::class, 'destroyReservation'])->name('reservation.delete');
 
-
 //ReservationController
-//Route::get('/reserve', [ReservationController::class, 'getReservation'])->name('getReserve');
 Route::post('/reserve/{shop_id}', [ReservationController::class, 'reserve'])->name('reserve');
 Route::get('/done',[ReservationController::class, 'getDone']);
-//Route::post('/done',[ReservationController::class, 'postDone']);
 
 //FavoriteController
 Route::middleware(['auth'])->group(function () {
